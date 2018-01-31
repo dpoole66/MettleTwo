@@ -26,13 +26,17 @@ public class DetectHit : MonoBehaviour {
         if (other.gameObject.tag != m_Opponent) {
             
             return;
-        }
 
-        healthbar.value -= 10;
+        } else  {
+
+            healthbar.value -= 10;
+
+        }
 
         if(healthbar.value <= 0){
 
             m_Anim.SetBool("isDead", true);
+
         }
       
     }

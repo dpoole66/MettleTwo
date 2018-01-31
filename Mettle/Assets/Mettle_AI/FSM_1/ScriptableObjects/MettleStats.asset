@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: MettleStats
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  lookRange: 5
-  lookSphereCastRadius: 3
+  lookRange: 7
+  lookSphereCastRadius: 5
   attackRange: 1.3
   attackRate: 5
   attackForce: 15

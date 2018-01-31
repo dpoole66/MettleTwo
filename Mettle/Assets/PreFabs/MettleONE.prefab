@@ -491,12 +491,11 @@ GameObject:
   - component: {fileID: 136432465496401118}
   - component: {fileID: 195635005477764350}
   - component: {fileID: 114472483449175238}
-  - component: {fileID: 114003885976709536}
   - component: {fileID: 82091602323112036}
   - component: {fileID: 82302212241902490}
   m_Layer: 0
   m_Name: MettleONE
-  m_TagString: MettleOne
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1966,8 +1965,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1330250728676592}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4246874800315448}
@@ -1978,7 +1977,7 @@ Transform:
   - {fileID: 224490080859549468}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4700550596639330
 Transform:
   m_ObjectHideFlags: 1
@@ -2491,20 +2490,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114003885976709536
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1330250728676592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 532a6625be6f3454984f3b3e4d2682ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthbar: {fileID: 114405166328079802, guid: 6098705ae06ffd3419321ba72e2e8cd3,
-    type: 2}
-  m_Opponent: MettlePrime
 --- !u!114 &114129253436067770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2552,18 +2537,14 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: 32c69c057f7a48d4fa6aa2c06cf86674, type: 2}
   enemyStats: {fileID: 11400000, guid: 3013c4ccb2b13c34f97ababf991df7a5, type: 2}
   m_MettleEye: {fileID: 4777295004777638}
-  m_EnemyMettle: {fileID: 4305844432690270, guid: 4128708a3ff4b3448b8a78b74628d988,
-    type: 2}
   remainState: {fileID: 11400000, guid: 3062d8594262d0248a86f0b1afa0d964, type: 2}
   m_Agent: {fileID: 0}
   m_Anim: {fileID: 0}
   wayPointList: []
   nextWayPoint: 0
-  m_EnemyTarget: {fileID: 0}
   stateTimeElapsed: 1
-  m_Attack: {fileID: 0}
-  nextAttackTime: 1
-  inAttack: 0
+  chaseTarget: {fileID: 4305844432690270, guid: 4128708a3ff4b3448b8a78b74628d988,
+    type: 2}
 --- !u!114 &114994751618953750
 MonoBehaviour:
   m_ObjectHideFlags: 1

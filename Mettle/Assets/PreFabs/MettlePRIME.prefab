@@ -129,12 +129,11 @@ GameObject:
   - component: {fileID: 136921861494671428}
   - component: {fileID: 195574612732574332}
   - component: {fileID: 114213350654886280}
-  - component: {fileID: 114013264571296420}
   - component: {fileID: 82418778869599998}
   - component: {fileID: 82148638720428542}
   m_Layer: 0
   m_Name: MettlePRIME
-  m_TagString: MettlePrime
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1595,7 +1594,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1109983028447884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4912721840277844}
@@ -2491,20 +2490,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114013264571296420
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1109983028447884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 532a6625be6f3454984f3b3e4d2682ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthbar: {fileID: 114204655765339258, guid: 403e1e07f079dfc40bd4b5bb99ab0ebd,
-    type: 2}
-  m_Opponent: MettleOne
 --- !u!114 &114209645215568574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2531,18 +2516,14 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: 32c69c057f7a48d4fa6aa2c06cf86674, type: 2}
   enemyStats: {fileID: 11400000, guid: 3013c4ccb2b13c34f97ababf991df7a5, type: 2}
   m_MettleEye: {fileID: 4849829343239796}
-  m_EnemyMettle: {fileID: 4699022924342624, guid: 92dc3f190b4435a46b3d90b85f9b62ef,
-    type: 2}
   remainState: {fileID: 11400000, guid: 3062d8594262d0248a86f0b1afa0d964, type: 2}
   m_Agent: {fileID: 0}
   m_Anim: {fileID: 0}
   wayPointList: []
   nextWayPoint: 0
-  m_EnemyTarget: {fileID: 0}
   stateTimeElapsed: 1
-  m_Attack: {fileID: 0}
-  nextAttackTime: 1
-  inAttack: 0
+  chaseTarget: {fileID: 4699022924342624, guid: 92dc3f190b4435a46b3d90b85f9b62ef,
+    type: 2}
 --- !u!114 &114257014532697494
 MonoBehaviour:
   m_ObjectHideFlags: 1

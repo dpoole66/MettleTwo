@@ -8,18 +8,16 @@ public class StateController : MonoBehaviour {
     public State currentState;
     public MettleStats enemyStats;
     public Transform m_MettleEye;
-    public Transform m_EnemyMettle;
     public State remainState;
+    //public Transform chaseTarget;
 
     [HideInInspector] public NavMeshAgent m_Agent;
     [HideInInspector] public Animator m_Anim;
     [HideInInspector] public List<Transform> wayPointList;
-    [HideInInspector] public int nextWayPoint;
-    [HideInInspector] public Transform m_EnemyTarget;
-    [HideInInspector] public float stateTimeElapsed = 1.0f;
-    [HideInInspector] public MettleAttack m_Attack;
-    [HideInInspector] public float nextAttackTime = 1.0f;  
-    [HideInInspector] public bool inAttack;
+    [HideInInspector] public int nextWayPoint;   
+    [HideInInspector] public float stateTimeElapsed;
+    [HideInInspector] public Transform chaseTarget;
+
 
     private bool aiActive;
 
@@ -27,8 +25,7 @@ public class StateController : MonoBehaviour {
 
         m_Agent = GetComponent<NavMeshAgent>();
         m_Anim = GetComponent<Animator>();
-        m_EnemyMettle = GetComponent<Transform>();
-        m_Attack = GetComponent<MettleAttack>();
+        chaseTarget = GetComponent<Transform>();
 
     }
 
@@ -81,12 +78,4 @@ public class StateController : MonoBehaviour {
 
     }
 
-    public void Attack(float AttackForce, float AttackRate) {
-
-        nextAttackTime = Time.time + AttackRate;
-        m_Agent.isStopped = true;
-        m_Anim.SetBool("isAttacking", true);
-        inAttack = true;
-
-    }
 }
