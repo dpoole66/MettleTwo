@@ -5,12 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - MettlePrime
-  - MettleOne
   - waypoint
   - spawnpoint
   - NPCHitCol
   - PlayerHitCol
+  - enemy
+  - Ground
+  - GoToPosition
   layers:
   - Default
   - TransparentFX

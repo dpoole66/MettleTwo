@@ -16,14 +16,12 @@ public class GameManager : MonoBehaviour {
     public MettleManager[] m_Mettles;               // A collection of managers for enabling and disabling different aspects of the Mettles.
     public List<Transform> wayPointsForAI;
 
+
     private int m_RoundNumber;                  // Which round the game is currently on.
     private WaitForSeconds m_StartWait;         // Used to have a delay whilst the round starts.
     private WaitForSeconds m_EndWait;           // Used to have a delay whilst the round or game ends.
     private MettleManager m_RoundWinner;          // Reference to the winner of the current round.  Used to make an announcement of who won.
     private MettleManager m_GameWinner;           // Reference to the winner of the game.  Used to make an announcement of who won.
-
-    public bool EnemyAttacking;
-
 
     private void Start() {
         // Create the delays so they only have to be made once.
@@ -31,7 +29,7 @@ public class GameManager : MonoBehaviour {
         m_EndWait = new WaitForSeconds(m_EndDelay);
 
         SpawnAllMettles();
- 
+
 
         // Once the tanks have been created and the camera is using them as targets, start the game.
         StartCoroutine(GameLoop());
@@ -44,7 +42,7 @@ public class GameManager : MonoBehaviour {
             Instantiate(m_MettlePrefabs[0], m_Mettles[0].m_SpawnPoint.position, m_Mettles[0].m_SpawnPoint.rotation) as GameObject;
         m_Mettles[0].m_MettleNumber = 1;
         //m_Mettles[0].SetupPlayerMettle();
-
+    
         // Setup Mettle waypoints
         for (int i = 1; i < m_Mettles.Length; i++) {
             // ... create them, set their player number and references needed for control.
@@ -53,6 +51,7 @@ public class GameManager : MonoBehaviour {
             m_Mettles[i].m_MettleNumber = i + 1;
             m_Mettles[i].SetupAI(wayPointsForAI);
         }
+
     }
 
 
