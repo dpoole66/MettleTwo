@@ -9,8 +9,12 @@ public class StateController : MonoBehaviour {
     public MettleStats enemyStats;
     public Transform m_MettleEye;
     public State remainState;
-    //public Transform chaseTarget;
 
+    public AudioClip m_Walking;
+    public AudioClip m_Attacking;
+
+    [HideInInspector] public AudioSource m_NPCAudio;
+    
     [HideInInspector] public NavMeshAgent m_Agent;
     [HideInInspector] public Animator m_Anim;
     [HideInInspector] public List<Transform> wayPointList;
@@ -26,6 +30,8 @@ public class StateController : MonoBehaviour {
         m_Agent = GetComponent<NavMeshAgent>();
         m_Anim = GetComponent<Animator>();
         chaseTarget = GetComponent<Transform>();
+        m_NPCAudio = GetComponent<AudioSource>();
+        m_Attacking = GetComponent<AudioClip>();
 
     }
 

@@ -24,12 +24,13 @@ public class AttackAction : Action {
         if (controller.CheckIfCountDownElapsed(controller.enemyStats.attackRate)) {
 
             controller.m_Anim.SetBool("isAttacking", true);
-           // controller.m_GameManager.SendMessage("EnemyAttacking", true);
+            controller.m_Anim.SetBool("isChaseing", false);
 
-        } else {
-            controller.m_Anim.SetBool("isAttacking", false);
-            //controller.m_GameManager.SendMessage("EnemyAttacking", false);
-        }
+            } else {
+
+                controller.m_Anim.SetBool("isAttacking", false);
+       
+            }
 
     }
 }

@@ -17,7 +17,16 @@ public class PatrolAction : Action {
 
         if (controller.m_Agent.remainingDistance <= controller.m_Agent.stoppingDistance && !controller.m_Agent.pathPending) {
             controller.nextWayPoint = (controller.nextWayPoint + 1) % controller.wayPointList.Count;
+
             controller.m_Anim.SetBool("isPatrolling", true);
+
+            controller.m_NPCAudio.clip = controller.m_Walking;
+            controller.m_NPCAudio.Play();
+
+        }    else{
+
+            controller.m_Anim.SetBool("isPatrolling", false);
+
         }
     }
 

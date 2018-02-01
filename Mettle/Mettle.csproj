@@ -339,6 +339,7 @@
     <Compile Include="Assets\Scripts\_basicScripts\LookAtEnemy.cs" />
     <Compile Include="Assets\Scripts\_basicScripts\LookAtTarget.cs" />
     <Compile Include="Assets\Scripts\_debug\DrawSightLine.cs" />
+    <Compile Include="Assets\Scripts\Audio\NPC_Audio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />

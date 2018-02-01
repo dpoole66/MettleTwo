@@ -10,7 +10,6 @@ public class AIMettleControl : MonoBehaviour
     public ThirdPersonMettle character { get; private set; } 
     private Transform target;
 
-
     private void Start()
     {
         // get the components on the object we need ( should not be null due to require component so no need to check )
@@ -19,18 +18,22 @@ public class AIMettleControl : MonoBehaviour
 
 	    agent.updateRotation = false;
 	    agent.updatePosition = true;
+
+
     }
 
     private void Update()
     {
 
-        if (target != null)
+        if (target != null) {
             agent.SetDestination(target.position);
-
-        if (agent.remainingDistance > agent.stoppingDistance)
+        }
+        if (agent.remainingDistance > agent.stoppingDistance) {
             character.Move(agent.desiredVelocity, false, false);
-        else
+
+        } else {
             character.Move(Vector3.zero, false, false);
+        }
     }
 
 

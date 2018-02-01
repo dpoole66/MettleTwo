@@ -23,8 +23,6 @@ public class PlaceTargetWithMouse : MonoBehaviour
 
         }
 
-        Debug.Log(setTargetOn);
-
         if (!Input.GetMouseButtonDown(0))
         {
             return;

@@ -10,6 +10,8 @@ public class MettleStats : ScriptableObject {
     public float lookRange = 40f;
     public float lookSphereCastRadius = 1f;
 
+    public float chaseRange = 3.0f;
+
     public float attackRange = 1f;
     public float attackRate = 1f;
     public float attackForce = 15f;
