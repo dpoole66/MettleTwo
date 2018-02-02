@@ -2452,12 +2452,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43366e0c18c948a40a0e50d96e3c9b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 11400000, guid: b48e22d1c046052478358d319f21dd5a, type: 2}
+  currentState: {fileID: 11400000, guid: 07a6d7076d41da146bf8f64264257f98, type: 2}
   enemyStats: {fileID: 11400000, guid: 3013c4ccb2b13c34f97ababf991df7a5, type: 2}
   m_MettleEye: {fileID: 4777295004777638}
   remainState: {fileID: 11400000, guid: 3062d8594262d0248a86f0b1afa0d964, type: 2}
-  m_Walking: {fileID: 0}
-  m_Attacking: {fileID: 0}
   m_NPCAudio: {fileID: 0}
   m_Agent: {fileID: 0}
   m_Anim: {fileID: 0}
@@ -2466,6 +2464,7 @@ MonoBehaviour:
   stateTimeElapsed: 1
   chaseTarget: {fileID: 4305844432690270, guid: 4128708a3ff4b3448b8a78b74628d988,
     type: 2}
+  m_Attack: {fileID: 0}
 --- !u!114 &114994751618953750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2747,11 +2746,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1
+  m_Speed: 0.4
   m_Acceleration: 1
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.3
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
