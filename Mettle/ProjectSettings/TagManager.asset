@@ -7,11 +7,13 @@ TagManager:
   - Enemy
   - waypoint
   - spawnpoint
-  - NPCHitCol
-  - PlayerHitCol
   - enemy
   - Ground
   - GoToPosition
+  - EnemyHit
+  - PlayerHit
+  - PlayerShield
+  - EnemyShield
   layers:
   - Default
   - TransparentFX

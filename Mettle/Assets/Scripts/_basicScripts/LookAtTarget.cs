@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class LookAtTarget : MonoBehaviour {
 
-    public Transform targetToLookAt;
+   [HideInInspector] public GameObject targetToLookAt;
 
 	void Update () {
 
-        transform.LookAt(targetToLookAt);
+        if (GameObject.Find("MettleNPC(Clone)") != null) {
 
-	}
+            var targetMettle = GameObject.Find("MettleNPC(Clone)");
+            
+            targetToLookAt = targetMettle;
+
+        }
+
+    }
 }

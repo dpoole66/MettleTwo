@@ -9,10 +9,10 @@ public class StateController : MonoBehaviour {
     public MettleStats enemyStats;
     public Transform m_MettleEye;
     public State remainState;
+    public GameObject m_PlayerMettle;
+    public bool m_PlayerAttacking;
 
-
-    [HideInInspector] public AudioSource m_NPCAudio;
-    
+    [HideInInspector] public AudioSource m_NPCAudio;   
     [HideInInspector] public NavMeshAgent m_Agent;
     [HideInInspector] public Animator m_Anim;
     [HideInInspector] public List<Transform> wayPointList;
@@ -20,7 +20,7 @@ public class StateController : MonoBehaviour {
     [HideInInspector] public float stateTimeElapsed;
     [HideInInspector] public Transform chaseTarget;
     [HideInInspector] public AttackStats_Enemy m_Attack;
-
+    [HideInInspector] public Animator m_Player_Anim;
 
     private bool aiActive;
 
@@ -31,6 +31,7 @@ public class StateController : MonoBehaviour {
         chaseTarget = GetComponent<Transform>();
         m_NPCAudio = GetComponent<AudioSource>();
         m_Attack = GetComponent<AttackStats_Enemy>();
+        m_Player_Anim = m_PlayerMettle.GetComponent<Animator>();
 
     }
 
@@ -47,6 +48,13 @@ public class StateController : MonoBehaviour {
     private void Update() {
         if (!aiActive) return;
         currentState.UpdateState(this);
+
+        // experimental, Talk to Player animator to see if it's attacking
+        if (m_Player_Anim.GetBool("isAttacking") == true) {
+
+            m_PlayerAttacking = true;
+
+        } else m_PlayerAttacking = false;
     }
 
     private void OnDrawGizmos() {
@@ -88,7 +96,7 @@ public class StateController : MonoBehaviour {
 
         foreach(AnimatorControllerParameter paramater in m_Anim.parameters){
                 m_Anim.SetBool(paramater.name, false);
-            Debug.Log("Clear Anim Params");
+
         }
 
     }

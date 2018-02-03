@@ -9,6 +9,7 @@ public class PatrolAction : Action {
     public override void Act(StateController controller) {
 
         Patrol(controller);
+
     }
 
     private void Patrol(StateController controller) {

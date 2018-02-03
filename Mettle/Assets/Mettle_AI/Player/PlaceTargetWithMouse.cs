@@ -7,13 +7,8 @@ public class PlaceTargetWithMouse : MonoBehaviour
     public float surfaceOffset = 0.1f;
     private GameObject setTargetOn;
 
-    private void Start() {
 
-      
-       
-    }
-
-    // Update is called once per frame
+    // Update is called once per frame   Yeah! Yeah! We know...
     private void Update()
     {
 

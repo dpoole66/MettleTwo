@@ -316,11 +316,13 @@
     <Compile Include="Assets\Mettle_AI\EnemyFSM\_Actions\Action.cs" />
     <Compile Include="Assets\Mettle_AI\EnemyFSM\_Actions\AdvanceAction.cs" />
     <Compile Include="Assets\Mettle_AI\EnemyFSM\_Actions\AttackAction.cs" />
+    <Compile Include="Assets\Mettle_AI\EnemyFSM\_Actions\BlockAction.cs" />
     <Compile Include="Assets\Mettle_AI\EnemyFSM\_Actions\ChaseAction.cs" />
     <Compile Include="Assets\Mettle_AI\EnemyFSM\_Actions\IdleAction.cs" />
     <Compile Include="Assets\Mettle_AI\EnemyFSM\_Actions\PatrolAction.cs" />
     <Compile Include="Assets\Mettle_AI\EnemyFSM\_Decisions\ActiveStateDecision.cs" />
     <Compile Include="Assets\Mettle_AI\EnemyFSM\_Decisions\AttackDecison.cs" />
+    <Compile Include="Assets\Mettle_AI\EnemyFSM\_Decisions\BlockDecision.cs" />
     <Compile Include="Assets\Mettle_AI\EnemyFSM\_Decisions\Decision.cs" />
     <Compile Include="Assets\Mettle_AI\EnemyFSM\_Decisions\LookDecision.cs" />
     <Compile Include="Assets\Mettle_AI\EnemyFSM\_Decisions\ScanDecision.cs" />
@@ -336,6 +338,7 @@
     <Compile Include="Assets\Scripts\_basicScripts\ClickToMove.cs" />
     <Compile Include="Assets\Scripts\_basicScripts\DetectHit.cs" />
     <Compile Include="Assets\Scripts\_basicScripts\DetectHitPrime.cs" />
+    <Compile Include="Assets\Scripts\_basicScripts\DetectHitShield.cs" />
     <Compile Include="Assets\Scripts\_basicScripts\LocomotionSimpleAgent.cs" />
     <Compile Include="Assets\Scripts\_basicScripts\LookAtEnemy.cs" />
     <Compile Include="Assets\Scripts\_basicScripts\LookAtTarget.cs" />
