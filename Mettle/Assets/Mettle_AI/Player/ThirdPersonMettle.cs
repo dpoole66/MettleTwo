@@ -171,7 +171,7 @@ public class ThirdPersonMettle : MonoBehaviour
 			m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_JumpPower, m_Rigidbody.velocity.z);
 			m_IsGrounded = false;
 			m_Animator.applyRootMotion = false;
-			m_GroundCheckDistance = 0.1f;
+			m_GroundCheckDistance = 0.4f;
 		}
 	}
 
@@ -208,7 +208,7 @@ public class ThirdPersonMettle : MonoBehaviour
 #endif
 		// 0.1f is a small offset to start the ray from inside the character
 		// it is also good to note that the transform position in the sample assets is at the base of the character
-		if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance))
+		if (Physics.Raycast(transform.position + (Vector3.up * 0.3f), Vector3.down, out hitInfo, m_GroundCheckDistance))
 		{
 			m_GroundNormal = hitInfo.normal;
 			m_IsGrounded = true;

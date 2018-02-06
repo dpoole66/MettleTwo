@@ -14,25 +14,10 @@ public class BlockAction : Action {
 
 
     private void Block(StateController controller) {
-        /*
-        RaycastHit hit;
 
-        Debug.DrawRay(controller.m_MettleEye.position, controller.m_MettleEye.forward.normalized *
-        controller.enemyStats.attackRange, Color.red);
-
-        if (Physics.SphereCast(controller.m_MettleEye.position, controller.enemyStats.lookSphereCastRadius,
-        controller.m_MettleEye.forward, out hit, controller.enemyStats.attackRange) && hit.collider.CompareTag("Player"))
-
-        controller.CheckIfCountDownElapsed(controller.enemyStats.attackRate);
-
-        // rotate toward player
-        controller.m_Agent.transform.LookAt(controller.chaseTarget);
-         */
-        if (controller.m_PlayerAttacking == true) {
-
-            controller.m_Anim.SetBool("isBlocked", true);
-
-        }
-
+        controller.m_Agent.transform.LookAt(controller.m_PlayerMettle.transform);
+        controller.m_Anim.SetTrigger("Defending");
     }
+
+    
 }

@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour {
         //EnableMettleControl();
 
         // Clear the text from the screen.
-        m_MessageText.text = string.Empty;
+        m_MessageText.text = "Mettle Prime status:";
 
         // Last mettle
         while (!OneMettleLeft()) {

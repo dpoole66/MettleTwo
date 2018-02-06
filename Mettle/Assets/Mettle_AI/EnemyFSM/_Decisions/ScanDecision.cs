@@ -18,6 +18,7 @@ public class ScanDecision : Decision {
         // Rotate while looking  as this uses Raycast vision
         controller.m_Agent.isStopped = true;
         controller.transform.Rotate(0, controller.enemyStats.searchingTurnSpeed * Time.deltaTime, 0);
+        controller.m_Anim.SetTrigger("Looking");
         // check aginst enemyStats
         return controller.CheckIfCountDownElapsed(controller.enemyStats.searchDuration);
 

@@ -11,6 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc46d5b0729668e4fb01f84723555fe1, type: 3}
   m_Name: Block
   m_EditorClassIdentifier: 
-  actions: []
-  transitions: []
-  sceneGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  actions:
+  - {fileID: 11400000, guid: 80a5164a2a5923747a2b0b50e72f1d22, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 2f92d71a65681f34b9c974ff8cdcdb35, type: 2}
+    trueState: {fileID: 11400000, guid: 3062d8594262d0248a86f0b1afa0d964, type: 2}
+    falseState: {fileID: 11400000, guid: eea7907a2ed12e84a9dac9d46de4d911, type: 2}
+  sceneGizmoColor: {r: 0.07586192, g: 0, b: 1, a: 1}

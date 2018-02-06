@@ -24,8 +24,8 @@ public class PatrolAction : Action {
             controller.nextWayPoint = (controller.nextWayPoint + 1) % controller.wayPointList.Count;     
 
             controller.m_NPCAudio.Play();
-
-            controller.m_Anim.SetBool("isPatrolling", true);
+            Debug.Log("Patrolling");
+            controller.m_Anim.SetTrigger("Patrolling");
 
         } 
 

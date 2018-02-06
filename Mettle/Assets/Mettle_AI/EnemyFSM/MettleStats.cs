@@ -7,8 +7,9 @@ using UnityEngine;
 public class MettleStats : ScriptableObject {
 
     public float moveSpeed = 1;
-    public float lookRange = 40f;
+    public float lookRange = 14;
     public float lookSphereCastRadius = 1f;
+    public float rotateSpeed = 1.0f;
 
     public float chaseRange = 3.0f;
 
@@ -19,5 +20,7 @@ public class MettleStats : ScriptableObject {
 
     public float searchDuration = 4f;
     public float searchingTurnSpeed = 120f;
+
+    public bool playerAttacking, playerDefending;
 
 }

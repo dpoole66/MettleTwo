@@ -24,7 +24,7 @@ public class LookDecision : Decision {
             controller.m_MettleEye.forward, out hit, controller.enemyStats.lookRange) && hit.collider.CompareTag("Player")) {
 
             controller.chaseTarget = hit.transform;
-
+            Debug.Log("Seen");
             return true;
 
         } else

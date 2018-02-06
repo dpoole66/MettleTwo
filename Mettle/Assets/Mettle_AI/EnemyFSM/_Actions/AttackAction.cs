@@ -17,18 +17,23 @@ public class AttackAction : Action {
         Debug.DrawRay(controller.m_MettleEye.position, controller.m_MettleEye.forward.normalized *
         controller.enemyStats.attackRange, Color.red);
 
+        // look for player
         if (Physics.SphereCast(controller.m_MettleEye.position, controller.enemyStats.lookSphereCastRadius,
         controller.m_MettleEye.forward, out hit, controller.enemyStats.attackRange) && hit.collider.CompareTag("Player"))
+
+        //check countdown
         controller.CheckIfCountDownElapsed(controller.enemyStats.attackRate);
 
         // go to player
-        controller.m_Agent.destination = controller.chaseTarget.transform.position;
+        //controller.m_Agent.destination = controller.chaseTarget.position ;
+
         // rotate toward player
         controller.m_Agent.transform.LookAt(controller.chaseTarget);
 
-        if (controller.CheckIfCountDownElapsed(controller.enemyStats.attackRate)){
+        if (controller.CheckIfCountDownElapsed(controller.enemyStats.attackRate) ) {
 
-            controller.m_Anim.SetBool("isAttacking", true);
+            controller.m_Agent.isStopped = true;
+            controller.m_Anim.SetTrigger("Attacking");
 
         }
 

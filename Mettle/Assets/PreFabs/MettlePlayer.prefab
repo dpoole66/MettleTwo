@@ -891,7 +891,7 @@ GameObject:
   - component: {fileID: 114464828980654056}
   - component: {fileID: 114811979913181168}
   - component: {fileID: 114552216213447616}
-  - component: {fileID: 114911681098696228}
+  - component: {fileID: 114488479262234808}
   m_Layer: 0
   m_Name: MettlePlayer
   m_TagString: Player
@@ -2334,7 +2334,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -2371,7 +2371,7 @@ Animator:
   m_GameObject: {fileID: 1702298631201510}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 85a6761b776984a4587f8c3b6fc1763f, type: 3}
-  m_Controller: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
+  m_Controller: {fileID: 9100000, guid: c6179c484f5f8134ebef521d2a94f41a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2423,6 +2423,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10b57d2003b22f44b9717bfb0bd503f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Enemy: {fileID: 0}
+  m_Anim: {fileID: 0}
+  m_PlayerStats: {fileID: 0}
+--- !u!114 &114488479262234808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1702298631201510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b43f416dfecd2942b25ee5a7365c369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PlayerStats: {fileID: 11400000, guid: 3013c4ccb2b13c34f97ababf991df7a5, type: 2}
+  m_Agent: {fileID: 0}
+  m_Enemy: {fileID: 0}
+  m_Anim: {fileID: 0}
 --- !u!114 &114552216213447616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2435,6 +2453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetToLookAt: {fileID: 0}
+  targetMettle: {fileID: 0}
 --- !u!114 &114715235211923404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2470,19 +2489,6 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 0.5
   m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 1
---- !u!114 &114911681098696228
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1702298631201510}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 532a6625be6f3454984f3b3e4d2682ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthbar: {fileID: 0}
-  m_Opponent: EnemyHit
 --- !u!136 &136022002977796416
 CapsuleCollider:
   m_ObjectHideFlags: 1

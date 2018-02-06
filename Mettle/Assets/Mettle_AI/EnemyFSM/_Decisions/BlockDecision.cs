@@ -18,12 +18,15 @@ public class BlockDecision : Decision {
         Debug.DrawRay(controller.m_MettleEye.position, controller.m_MettleEye.forward.normalized *
             controller.enemyStats.attackRange, Color.white);
 
-        if (controller.m_PlayerAttacking == true) {
+        float distance = Vector3.Distance(controller.m_Agent.transform.position, controller.m_PlayerMettle.transform.position);
+
+        if (controller.m_Agent.isStopped == true && distance <= controller.playerStats.attackRange) {
 
             return true;
 
         } else
-            return false;
+            
+        return false;
 
 
     }

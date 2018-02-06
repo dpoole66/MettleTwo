@@ -6,21 +6,19 @@ using UnityEngine.AI;
 public class StateController : MonoBehaviour {
 
     public State currentState;
-    public MettleStats enemyStats;
+    public EnemyStats enemyStats;
+    public MettleStats playerStats;
     public Transform m_MettleEye;
     public State remainState;
     public GameObject m_PlayerMettle;
-    public bool m_PlayerAttacking;
 
     [HideInInspector] public AudioSource m_NPCAudio;   
     [HideInInspector] public NavMeshAgent m_Agent;
-    [HideInInspector] public Animator m_Anim;
+    [HideInInspector] public Animator m_Anim, m_PlayerAnim;
     [HideInInspector] public List<Transform> wayPointList;
     [HideInInspector] public int nextWayPoint;   
     [HideInInspector] public float stateTimeElapsed;
-    [HideInInspector] public Transform chaseTarget;
-    [HideInInspector] public AttackStats_Enemy m_Attack;
-    [HideInInspector] public Animator m_Player_Anim;
+    [HideInInspector] public Transform chaseTarget;  
 
     private bool aiActive;
 
@@ -29,10 +27,9 @@ public class StateController : MonoBehaviour {
         m_Agent = GetComponent<NavMeshAgent>();
         m_Anim = GetComponent<Animator>();
         chaseTarget = GetComponent<Transform>();
-        m_NPCAudio = GetComponent<AudioSource>();
-        m_Attack = GetComponent<AttackStats_Enemy>();
-        m_Player_Anim = m_PlayerMettle.GetComponent<Animator>();
-
+        m_NPCAudio = GetComponent<AudioSource>();        
+        m_PlayerAnim = m_PlayerMettle.GetComponent<Animator>();
+ 
     }
 
     public void SetupAI(bool aiActivationFromMettleManager, List<Transform> wayPointsFromMettleManager) {
@@ -49,12 +46,6 @@ public class StateController : MonoBehaviour {
         if (!aiActive) return;
         currentState.UpdateState(this);
 
-        // experimental, Talk to Player animator to see if it's attacking
-        if (m_Player_Anim.GetBool("isAttacking") == true) {
-
-            m_PlayerAttacking = true;
-
-        } else m_PlayerAttacking = false;
     }
 
     private void OnDrawGizmos() {
@@ -73,8 +64,7 @@ public class StateController : MonoBehaviour {
                 currentState = nextState;
 
                 OnExitState();
-                ClearAnimParams();
-
+                
           }
 
     }
@@ -86,19 +76,23 @@ public class StateController : MonoBehaviour {
 
     }
 
-    private void OnExitState(){  
+    private void OnExitState(){
 
+        //ClearAnimParams();
         stateTimeElapsed = 0;
 
     }
 
+    
     public void ClearAnimParams(){
 
         foreach(AnimatorControllerParameter paramater in m_Anim.parameters){
-                m_Anim.SetBool(paramater.name, false);
+                m_Anim.SetBool("moving", false);
+                m_Anim.ResetTrigger(paramater.name);
 
         }
 
     }
+    
 
 }

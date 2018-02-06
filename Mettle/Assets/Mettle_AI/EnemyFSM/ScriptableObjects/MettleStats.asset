@@ -14,6 +14,7 @@ MonoBehaviour:
   moveSpeed: 1
   lookRange: 5.8
   lookSphereCastRadius: 2.64
+  rotateSpeed: 33
   chaseRange: 5
   attackRange: 2
   attackRate: 1
@@ -21,3 +22,5 @@ MonoBehaviour:
   attackDamage: 10
   searchDuration: 8
   searchingTurnSpeed: 120
+  playerAttacking: 0
+  playerDefending: 0

@@ -20,7 +20,7 @@ public class ChaseAction : Action {
         Debug.DrawRay(controller.m_MettleEye.position, controller.m_MettleEye.forward.normalized *
         controller.enemyStats.attackRange, Color.yellow);
 
-        controller.m_Anim.SetBool("isChaseing", true);
+        controller.m_Anim.SetTrigger("Chaseing");
       
     }
 

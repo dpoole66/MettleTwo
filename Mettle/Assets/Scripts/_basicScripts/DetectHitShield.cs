@@ -5,7 +5,7 @@ using UnityEngine;
 public class DetectHitShield : MonoBehaviour {
     private GameObject m_SwordOwner;  
     Animator m_Anim;
-    public string m_Opponent;
+    public string m_PlayerShield;
 
     // Use this for initialization
     void Awake () {
@@ -16,13 +16,13 @@ public class DetectHitShield : MonoBehaviour {
     // Hit Trigger count
     void OnTriggerEnter(Collider other) {
 
-        if (other.gameObject.tag != m_Opponent) {
+        if (other.gameObject.tag != m_PlayerShield) {
 
             return;
 
         } else {
 
-            m_Anim.SetBool("isBlocked", true);
+            m_Anim.SetBool("isAttacking", false);
             Debug.Log("Blocked");
 
         }
