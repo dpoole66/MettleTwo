@@ -13,6 +13,9 @@ public class AIMettleControl : MonoBehaviour
     [HideInInspector] public Animator m_Anim;
     [HideInInspector] public MettleStats m_PlayerStats;
 
+    // positions and smoothing for movement
+    Vector2 smoothDeltaPosition = Vector2.zero;
+    Vector2 velocity = Vector2.zero;
 
     private void Start()
     {
@@ -21,9 +24,10 @@ public class AIMettleControl : MonoBehaviour
         m_Anim = GetComponent<Animator>();
         m_Character = GetComponent<ThirdPersonMettle>();
         m_Enemy = GameObject.FindWithTag("Enemy");
-        m_Agent.updateRotation = false;
+
+        // for Player m_Agent will follow animation so allow updates
+        m_Agent.updateRotation = true;
         m_Agent.updatePosition = true;
-        //m_Agent.updateUpAxis = true;
 
     }
 
@@ -37,16 +41,29 @@ public class AIMettleControl : MonoBehaviour
         }
 
         // Get player world position
-        Vector3 worldDeltaPosition = m_Agent.nextPosition - transform.position;
+        Vector3 worldDeltaPosition = m_Agent.nextPosition - m_Anim.rootPosition;
         // Map npc to local space
         float dirX = Vector3.Dot(transform.right, worldDeltaPosition);
         float dirY = Vector3.Dot(transform.forward, worldDeltaPosition);
         Vector2 deltaPosition = new Vector2(dirX, dirY);     // deltaPosition is the local space vector
 
-        // Get angles for rotation
-        var rotVal = Vector3.Angle(
-        Vector3.ProjectOnPlane(m_Agent.transform.forward, Vector3.up).normalized,
-        Vector3.ProjectOnPlane(m_Enemy.transform.position - m_Agent.transform.position, Vector3.up).normalized);
+        //  filter the movement by returning the smallest value of 2 inputs, 1 and time/.# seconds
+        float smooth = Mathf.Min(1.0f, Time.deltaTime / 0.15f);
+        smoothDeltaPosition = Vector2.Lerp(smoothDeltaPosition, deltaPosition, smooth);         // local pos after smoothing
+
+        //Update velocity with time advance
+        if (Time.deltaTime > 1e-5f) {
+
+            velocity = smoothDeltaPosition / Time.deltaTime;
+
+        }
+
+        bool isMoving = velocity.magnitude > 0.5f && m_Agent.remainingDistance > m_Agent.radius;
+
+        // Send local space coords to the animator
+        m_Anim.SetBool("Moving", isMoving);
+        m_Anim.SetFloat("Turn", dirX);
+        m_Anim.SetFloat("Forward", dirY);
 
         // Quaternion rotation to enemy
         Vector3 relativePos = m_Enemy.transform.position - m_Agent.transform.position;
@@ -57,20 +74,21 @@ public class AIMettleControl : MonoBehaviour
             m_Agent.SetDestination(target.position);
         }
 
-            // Walk to enemy
-        if (m_Agent.remainingDistance > m_Agent.stoppingDistance) {
+         //Idle
+        if (m_Agent.remainingDistance <= m_Agent.stoppingDistance) {
+            
+            m_Agent.isStopped = true;
+            m_Character.Move(Vector3.zero, false, false);
+            m_Anim.SetTrigger("Idle");
+            m_Agent.transform.rotation = lookRotation;
+
+
+        } else {           //Walk
             m_Agent.isStopped = false;    
             m_Character.Move(m_Agent.desiredVelocity, false, false);
             m_Anim.SetTrigger("Walking");
-
-        } else {    
-            // Rotate to enemy when stopped
-            m_Agent.isStopped = true;
-            m_Character.Move(Vector3.zero, false, false);
-            m_Anim.SetTrigger("Idle"); 
-            m_Agent.transform.rotation = lookRotation;
         }
-                                                                                     
+
     }
 
 

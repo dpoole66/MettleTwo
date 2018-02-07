@@ -312,6 +312,7 @@
     <Compile Include="Assets\Mettle_AI\_old\MettleAI.cs" />
     <Compile Include="Assets\Mettle_AI\_old\Patrol.cs" />
     <Compile Include="Assets\Mettle_AI\Enemy\AttackStats_Enemy.cs" />
+    <Compile Include="Assets\Mettle_AI\Enemy\EnemyMettleController.cs" />
     <Compile Include="Assets\Mettle_AI\Enemy\MovementEnemy.cs" />
     <Compile Include="Assets\Mettle_AI\EnemyFSM\_Actions\Action.cs" />
     <Compile Include="Assets\Mettle_AI\EnemyFSM\_Actions\AdvanceAction.cs" />
@@ -321,6 +322,7 @@
     <Compile Include="Assets\Mettle_AI\EnemyFSM\_Actions\IdleAction.cs" />
     <Compile Include="Assets\Mettle_AI\EnemyFSM\_Actions\PatrolAction.cs" />
     <Compile Include="Assets\Mettle_AI\EnemyFSM\_Decisions\ActiveStateDecision.cs" />
+    <Compile Include="Assets\Mettle_AI\EnemyFSM\_Decisions\AdvanceDecision.cs" />
     <Compile Include="Assets\Mettle_AI\EnemyFSM\_Decisions\AttackDecison.cs" />
     <Compile Include="Assets\Mettle_AI\EnemyFSM\_Decisions\BlockDecision.cs" />
     <Compile Include="Assets\Mettle_AI\EnemyFSM\_Decisions\Decision.cs" />

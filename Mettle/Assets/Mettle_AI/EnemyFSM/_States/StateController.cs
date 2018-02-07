@@ -10,7 +10,7 @@ public class StateController : MonoBehaviour {
     public MettleStats playerStats;
     public Transform m_MettleEye;
     public State remainState;
-    public GameObject m_PlayerMettle;
+    public GameObject m_PlayerMettle;   
 
     [HideInInspector] public AudioSource m_NPCAudio;   
     [HideInInspector] public NavMeshAgent m_Agent;
@@ -28,8 +28,7 @@ public class StateController : MonoBehaviour {
         m_Anim = GetComponent<Animator>();
         chaseTarget = GetComponent<Transform>();
         m_NPCAudio = GetComponent<AudioSource>();        
-        m_PlayerAnim = m_PlayerMettle.GetComponent<Animator>();
- 
+        m_PlayerAnim = m_PlayerMettle.GetComponent<Animator>();     
     }
 
     public void SetupAI(bool aiActivationFromMettleManager, List<Transform> wayPointsFromMettleManager) {
@@ -93,6 +92,5 @@ public class StateController : MonoBehaviour {
         }
 
     }
-    
 
 }

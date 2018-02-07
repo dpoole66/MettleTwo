@@ -19,8 +19,7 @@ public class AttackDecison : Decision {
         controller.enemyStats.attackRange, Color.red);
 
             if (Vector3.Distance(controller.transform.position, controller.chaseTarget.transform.position) <= controller.enemyStats.attackRange) {
-            
-            controller.m_Agent.isStopped = true;
+
             controller.enemyStats.enemyAttacking = true;
             return true;
 

@@ -14,8 +14,10 @@ public class ChaseAction : Action {
 
     private void Chase(StateController controller) {
 
-        controller.m_Agent.destination = controller.chaseTarget.position;
+        //controller.m_Agent.destination = controller.chaseTarget.position;
+        if(controller.m_Agent.remainingDistance >= controller.m_Agent.stoppingDistance && !controller.m_Agent.pathPending)
         controller.m_Agent.isStopped = false;
+        controller.m_Agent.destination = controller.chaseTarget.position;
 
         Debug.DrawRay(controller.m_MettleEye.position, controller.m_MettleEye.forward.normalized *
         controller.enemyStats.attackRange, Color.yellow);

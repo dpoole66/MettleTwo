@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Name: EnemyStats
   m_EditorClassIdentifier: 
   moveSpeed: 0.5
+  rotateSpeed: 3
   lookRange: 6
   lookSphereCastRadius: 4
+  advanceRange: 5
   chaseRange: 5
   attackRange: 2
-  attackRate: 3
+  attackRate: 0.3
   attackForce: 15
   attackDamage: 10
   searchDuration: 4

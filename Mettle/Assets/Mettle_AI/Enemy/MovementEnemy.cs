@@ -7,6 +7,9 @@ public class MovementEnemy : MonoBehaviour {
 
     NavMeshAgent m_Agent;
     Animator m_Anim;
+    [HideInInspector] public GameObject m_Enemy;
+    [HideInInspector] public EnemyStats m_EnemyStats;
+
     Vector2 smoothDeltaPosition = Vector2.zero;
     Vector2 velocity = Vector2.zero;
 

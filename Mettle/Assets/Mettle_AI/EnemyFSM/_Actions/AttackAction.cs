@@ -21,18 +21,18 @@ public class AttackAction : Action {
         if (Physics.SphereCast(controller.m_MettleEye.position, controller.enemyStats.lookSphereCastRadius,
         controller.m_MettleEye.forward, out hit, controller.enemyStats.attackRange) && hit.collider.CompareTag("Player"))
 
+        // Stop enemy
+        controller.m_Agent.isStopped = true;
+
+        // Turn off chaseing animation
+        controller.m_Anim.ResetTrigger("Chaseing");
+
         //check countdown
         controller.CheckIfCountDownElapsed(controller.enemyStats.attackRate);
 
-        // go to player
-        //controller.m_Agent.destination = controller.chaseTarget.position ;
-
-        // rotate toward player
-        controller.m_Agent.transform.LookAt(controller.chaseTarget);
 
         if (controller.CheckIfCountDownElapsed(controller.enemyStats.attackRate) ) {
-
-            controller.m_Agent.isStopped = true;
+   
             controller.m_Anim.SetTrigger("Attacking");
 
         }

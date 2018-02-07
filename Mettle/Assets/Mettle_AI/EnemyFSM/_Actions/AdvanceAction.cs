@@ -12,9 +12,12 @@ public class AdvanceAction : Action {
     }
 
     private void Advance(StateController controller) {
-        controller.m_Agent.destination = controller.chaseTarget.position;
+
+    if(controller.m_PlayerMettle.transform.position.magnitude >= controller.enemyStats.advanceRange && controller.m_PlayerMettle.transform.position.magnitude <= controller.enemyStats.chaseRange)
+        controller.m_Agent.nextPosition = controller.chaseTarget.position;
+        controller.m_Anim.rootPosition = controller.m_Agent.nextPosition;
         controller.m_Agent.isStopped = false;
-        controller.m_Anim.SetBool("isAdvancing", true);
-        controller.m_Anim.SetBool("isIdle", false);
+        controller.m_Anim.SetTrigger("Advancing");
+
     }
 }
