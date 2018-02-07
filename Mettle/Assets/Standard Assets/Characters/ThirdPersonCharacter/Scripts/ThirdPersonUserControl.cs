@@ -12,6 +12,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_CamForward;             // The current forward direction of the camera
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
+        bool m_Moving;
 
         
         private void Start()
@@ -68,7 +69,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 #endif
 
             // pass all parameters to the character control script
-            m_Character.Move(m_Move, crouch, m_Jump);
+
+            //NOTE 2/7/2018 m-Moving below was added for Mettle. It caused an error here so I'm adding a bool  temporarly.
+            m_Character.Move(m_Move, crouch, m_Jump, m_Moving);
             m_Jump = false;
         }
     }

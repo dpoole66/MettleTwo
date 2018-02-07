@@ -22,13 +22,17 @@ public class PlaceTargetWithMouse : MonoBehaviour
         {
             return;
         }
+       
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+       
         if (!Physics.Raycast(ray, out hit))
         {
             return;
         }
+        
         transform.position = hit.point + hit.normal*surfaceOffset;
+        
         if (setTargetOn != null)
         {
             setTargetOn.SendMessage("SetTarget", transform);

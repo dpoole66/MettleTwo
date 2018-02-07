@@ -338,6 +338,8 @@
     <Compile Include="Assets\Mettle_AI\Player\AIMettleControl.cs" />
     <Compile Include="Assets\Mettle_AI\Player\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\Mettle_AI\Player\PlayerCombat.cs" />
+    <Compile Include="Assets\Mettle_AI\Player\PlayerController.cs" />
+    <Compile Include="Assets\Mettle_AI\Player\PlayerInput.cs" />
     <Compile Include="Assets\Mettle_AI\Player\ThirdPersonMettle.cs" />
     <Compile Include="Assets\Scripts\_basicScripts\ClickToMove.cs" />
     <Compile Include="Assets\Scripts\_basicScripts\DetectHit.cs" />

@@ -888,10 +888,8 @@ GameObject:
   - component: {fileID: 54934508273558658}
   - component: {fileID: 136022002977796416}
   - component: {fileID: 195604771197719216}
-  - component: {fileID: 114464828980654056}
-  - component: {fileID: 114811979913181168}
-  - component: {fileID: 114552216213447616}
-  - component: {fileID: 114488479262234808}
+  - component: {fileID: 114263959698915310}
+  - component: {fileID: 114052051144025892}
   m_Layer: 0
   m_Name: MettlePlayer
   m_TagString: Player
@@ -2379,6 +2377,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114052051144025892
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1702298631201510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b4d8ab8486102d418b41f545f08c388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114228014016878146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2391,6 +2400,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MettleEyeForward: {fileID: 4325502932280996}
+--- !u!114 &114263959698915310
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1702298631201510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f389b73f8e510545a89b352f8ff45a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MovingTurnSpeed: 360
+  m_StationaryTurnSpeed: 180
+  m_MoveSpeedMultiplier: 5
+  m_AnimSpeedMultiplier: 3
 --- !u!114 &114316926903683598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2412,48 +2436,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114464828980654056
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1702298631201510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b10b57d2003b22f44b9717bfb0bd503f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Enemy: {fileID: 0}
-  m_Anim: {fileID: 0}
-  m_PlayerStats: {fileID: 0}
---- !u!114 &114488479262234808
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1702298631201510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b43f416dfecd2942b25ee5a7365c369, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PlayerStats: {fileID: 11400000, guid: 3013c4ccb2b13c34f97ababf991df7a5, type: 2}
-  m_Agent: {fileID: 0}
-  m_Enemy: {fileID: 0}
-  m_Anim: {fileID: 0}
---- !u!114 &114552216213447616
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1702298631201510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b21303391875cd94ab0865e599bb8c41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetToLookAt: {fileID: 0}
-  targetMettle: {fileID: 0}
 --- !u!114 &114715235211923404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2470,25 +2452,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114811979913181168
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1702298631201510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7142ac5da4aa69a479c315f32b1e2253, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MovingTurnSpeed: 360
-  m_StationaryTurnSpeed: 180
-  m_JumpPower: 12
-  m_GravityMultiplier: 2
-  m_RunCycleLegOffset: 0.2
-  m_MoveSpeedMultiplier: 0.5
-  m_AnimSpeedMultiplier: 1
-  m_GroundCheckDistance: 1
 --- !u!136 &136022002977796416
 CapsuleCollider:
   m_ObjectHideFlags: 1

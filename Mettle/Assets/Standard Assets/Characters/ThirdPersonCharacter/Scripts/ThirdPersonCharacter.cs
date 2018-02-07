@@ -28,6 +28,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		Vector3 m_CapsuleCenter;
 		CapsuleCollider m_Capsule;
 		bool m_Crouching;
+        bool m_Moving;
 
 
         void Start()
@@ -43,7 +44,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		}
 
 
-        public void Move(Vector3 move, bool crouch, bool jump)
+        public void Move(Vector3 move, bool crouch, bool jump, bool isMoveing)
 		{
 
 			// convert the world relative moveInput vector into a local-relative
@@ -71,8 +72,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			ScaleCapsuleForCrouching(crouch);
 			PreventStandingInLowHeadroom();
 
-			// send input and other state parameters to the animator
-			UpdateAnimator(move);
+            //Me
+            // if(move.magnitude > 0.1f )  {
+            //     bool m_Moving = true;   
+            //  }
+            m_Moving = move.magnitude > 0.1f;
+             
+
+            // send input and other state parameters to the animator
+            UpdateAnimator(move);
 		}
 
 
@@ -119,7 +127,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		{
 			// update the animator parameters
 			m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
-			m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);   
+			m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
+            //Move
+            m_Animator.SetBool("Moving", m_Moving);
             m_Animator.SetBool("Crouch", m_Crouching);
 			m_Animator.SetBool("OnGround", m_IsGrounded);
 			if (!m_IsGrounded)
