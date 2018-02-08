@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace MettlePlayer{
+namespace MettlePlayer
+{
 
     public class PlayerInput : MonoBehaviour {
         public PlayerController M_Character { get; private set; }      //public read access / private write access

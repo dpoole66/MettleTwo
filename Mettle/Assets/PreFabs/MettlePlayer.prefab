@@ -572,7 +572,7 @@ GameObject:
   m_Layer: 0
   m_Name: MettlePRIMEEyeForward
   m_TagString: Untagged
-  m_Icon: {fileID: 6926474624037801865, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -1577725955494882426, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -890,6 +890,7 @@ GameObject:
   - component: {fileID: 195604771197719216}
   - component: {fileID: 114263959698915310}
   - component: {fileID: 114052051144025892}
+  - component: {fileID: 114251680670921952}
   m_Layer: 0
   m_Name: MettlePlayer
   m_TagString: Player
@@ -1463,7 +1464,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1493185918609998}
   m_LocalRotation: {x: 5.2041704e-18, y: -3.5575384e-19, z: -7.4782845e-17, w: 1}
-  m_LocalPosition: {x: -0, y: 0.09, z: 7}
+  m_LocalPosition: {x: -0, y: 0.09, z: 0.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4355575207146490}
@@ -2400,6 +2401,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MettleEyeForward: {fileID: 4325502932280996}
+--- !u!114 &114251680670921952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1702298631201510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eb30a7d65db20f459a62c779fe22103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
 --- !u!114 &114263959698915310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2717,7 +2730,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1.5
+  m_Speed: 2
   m_Acceleration: 2
   avoidancePriority: 50
   m_AngularSpeed: 120
