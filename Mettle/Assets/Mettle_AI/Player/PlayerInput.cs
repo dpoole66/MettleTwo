@@ -7,6 +7,7 @@ namespace MettlePlayer
 {
 
     public class PlayerInput : MonoBehaviour {
+
         public PlayerController M_Character { get; private set; }      //public read access / private write access
         [HideInInspector] public NavMeshAgent m_Agent { get; private set; }
         private Transform m_MoveToTarget;
@@ -35,6 +36,8 @@ namespace MettlePlayer
                     M_Character.Move(Vector3.zero, false);           /// false m_Moving
 
             }
+
+
 
         }
 

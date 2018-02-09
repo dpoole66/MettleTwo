@@ -891,6 +891,7 @@ GameObject:
   - component: {fileID: 114263959698915310}
   - component: {fileID: 114052051144025892}
   - component: {fileID: 114251680670921952}
+  - component: {fileID: 114076855267742218}
   m_Layer: 0
   m_Name: MettlePlayer
   m_TagString: Player
@@ -2389,6 +2390,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4d8ab8486102d418b41f545f08c388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114076855267742218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1702298631201510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf7949b4f0ddc34c8a3b1d644d1ef93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EnemyRange: {fileID: 0}
 --- !u!114 &114228014016878146
 MonoBehaviour:
   m_ObjectHideFlags: 1

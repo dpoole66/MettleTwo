@@ -12,17 +12,19 @@ namespace MettlePlayer
 
         NavMeshAgent m_Agent = null;
         Animator m_Anim = null;
-        GameObject m_Enemy = null;
-        public PlayerController M_Character { get; private set; }
-        private Transform m_EnemyLoc;
+        GameObject m_Enemy, m_Player;   
+        public PlayerController M_Character { get; private set; } 
+        public BattleController M_Battle  {get; private set; }
+        Vector3 enemyPosition;
+        Quaternion enemyRotation;
+
 
 
 
         void Awake() {
 
             m_Agent = GetComponent<NavMeshAgent>();
-            m_Anim = GetComponent<Animator>();
-            M_Character = GetComponent<PlayerController>();       
+            m_Anim = GetComponent<Animator>();                          
         }
 
 
@@ -30,7 +32,14 @@ namespace MettlePlayer
 
             CurrentState = PLAYER_STATE.IDLE;
             m_Enemy = GameObject.Find("MettleNPC(Clone)");
-            m_EnemyLoc = m_Enemy.GetComponent <Transform>() ;
+            m_Player = GameObject.Find("MettlePlayer(Clone)");
+            M_Battle = GetComponent<BattleController>();
+
+            if (m_Enemy.transform != null){
+
+                Debug.Log("Enemy Found");
+      
+            }
 
         }
 
@@ -92,13 +101,23 @@ namespace MettlePlayer
 
             while(currentState == PLAYER_STATE.IDLE)
             {
-
-                m_Agent.isStopped = true;
+               
+                m_Agent.isStopped = true;  
                 m_Anim.SetTrigger("Idle");
-                Debug.Log("Idle");
-                
+
+                if (m_Agent.remainingDistance <= m_Agent.stoppingDistance){
+
+                    //m_Agent.transform.LookAt(enemyPosition);
+
+                    Quaternion DestRot = Quaternion.LookRotation(enemyPosition - m_Agent.transform.position, Vector3.up);
+                    m_Agent.transform.rotation = Quaternion.RotateTowards(m_Agent.transform.rotation, DestRot, 180.0f * Time.deltaTime);
+
+                }
+                    
+
+
                 // attack  and move input button
-                if(Input.GetMouseButtonDown(1)) 
+                if (Input.GetMouseButtonDown(1)) 
                 {
 
                     CurrentState = PLAYER_STATE.ATTACK;
@@ -124,13 +143,11 @@ namespace MettlePlayer
         public IEnumerator Player_Chase() {
 
             while(currentState == PLAYER_STATE.CHASE)
-            {
-                float distance = Vector3.Distance(m_EnemyLoc.position, m_Agent.transform.position);    
-         
-                m_Agent.isStopped = false;
-                m_Anim.SetTrigger("Walking");    
-                Debug.Log("Chase");
+            {    
 
+                m_Agent.isStopped = false;
+                m_Anim.SetTrigger("Walking");             
+     
                 //Wait until path is computed
                 while (m_Agent.pathPending)
                     yield return null;
@@ -154,7 +171,6 @@ namespace MettlePlayer
             while (currentState == PLAYER_STATE.ATTACK) {
 
                 m_Anim.SetTrigger("Attacking");
-                Debug.Log("Attack");
 
                 yield return new WaitForSeconds(2.0f);
 
@@ -196,9 +212,10 @@ namespace MettlePlayer
 
         }
 
-      //-------------End Player state machine
+        //-------------End Player state machine
 
- 
+
     }
+
 
 }

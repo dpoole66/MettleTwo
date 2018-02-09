@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MettlePlayer
 {
@@ -13,7 +14,7 @@ namespace MettlePlayer
         [SerializeField] float m_AnimSpeedMultiplier = 1f;
 
         Rigidbody m_Rigid; 
-        Animator m_Anim;
+        Animator m_Anim;  
 
         float m_TurnAmount;
         float m_ForwardAmount;
@@ -23,7 +24,7 @@ namespace MettlePlayer
         void Start() {
 
             m_Rigid = GetComponent<Rigidbody>();
-            m_Anim = GetComponent<Animator>();
+            m_Anim = GetComponent<Animator>();   
 
         }
 
