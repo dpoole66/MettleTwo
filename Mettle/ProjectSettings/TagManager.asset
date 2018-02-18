@@ -11,10 +11,19 @@ TagManager:
   - Ground
   - GoToPosition
   - EnemyHit
-  - PlayerHit
   - PlayerShield
   - EnemyShield
   - MettleClone
+  - attackpoint
+  - PlayerSword
+  - targetPlayerHead
+  - targetPlayerShield
+  - targetPlayerSword
+  - targetEnemyHead
+  - targetEnemyShield
+  - targetEnemySword
+  - EnemySword
+  - Sword
   layers:
   - Default
   - TransparentFX

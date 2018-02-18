@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour {
         SpawnAllMettles();
 
 
-        // Once the tanks have been created and the camera is using them as targets, start the game.
+        // Once the Mettles have been created and the camera is using them as targets, start the game.
         StartCoroutine(GameLoop());
     }
 
@@ -41,8 +41,8 @@ public class GameManager : MonoBehaviour {
         m_Mettles[0].m_Instance =
             Instantiate(m_MettlePrefabs[0], m_Mettles[0].m_SpawnPoint.position, m_Mettles[0].m_SpawnPoint.rotation) as GameObject;
         m_Mettles[0].m_MettleNumber = 1;
-        //m_Mettles[0].SetupPlayerMettle();
-    
+        m_Mettles[0].SetUpPlayerMettle();
+
         // Setup Mettle waypoints
         for (int i = 1; i < m_Mettles.Length; i++) {
             // ... create them, set their player number and references needed for control.
@@ -80,11 +80,11 @@ public class GameManager : MonoBehaviour {
 
 
     private IEnumerator RoundStarting() {
-        // As soon as the round starts reset the tanks and make sure they can't move.
-        //ResetAllMettles();
-        //DisableMettleControl();
+        // As soon as the round starts reset the Mettles and make sure they can't move.
+        ResetAllMettles();
+        DisableMettleControl();
 
-        // Snap the camera's zoom and position to something appropriate for the reset tanks.
+        // Snap the camera's zoom and position to something appropriate for the reset Mettles.
         //m_CameraControl.SetStartPositionAndSize ();
 
         // Increment the round number and display text showing the players what round it is.
@@ -97,8 +97,8 @@ public class GameManager : MonoBehaviour {
 
 
     private IEnumerator RoundPlaying() {
-        // As soon as the round begins playing let the players control the tanks.
-        //EnableMettleControl();
+        // As soon as the round begins playing let the players control the Mettles.
+        EnableMettleControl();
 
         // Clear the text from the screen.
         m_MessageText.text = "Mettle Prime status:";
@@ -112,8 +112,8 @@ public class GameManager : MonoBehaviour {
 
 
     private IEnumerator RoundEnding() {
-        // Stop tanks from moving.
-        //DisableMettleControl();
+        // Stop Mettles from moving.
+        DisableMettleControl();
 
         // Clear the winner from the previous round.
         m_RoundWinner = null;
@@ -139,46 +139,46 @@ public class GameManager : MonoBehaviour {
 
     // This is used to check if there is one or fewer Mettles remaining and thus the round should end.
     private bool OneMettleLeft() {
-        // Start the count of tanks left at zero.
+        // Start the count of Mettles left at zero.
         int numMettlesLeft = 0;
 
-        // Go through all the tanks...
+        // Go through all the Mettles...
         for (int i = 0; i < m_Mettles.Length; i++) {
             // ... and if they are active, increment the counter.
             if (m_Mettles[i].m_Instance.activeSelf)
                 numMettlesLeft++;
         }
 
-        // If there are one or fewer tanks remaining return true, otherwise return false.
+        // If there are one or fewer Mettles remaining return true, otherwise return false.
         return numMettlesLeft <= 1;
     }
 
 
     // This function is to find out if there is a winner of the round.
-    // This function is called with the assumption that 1 or fewer tanks are currently active.
+    // This function is called with the assumption that 1 or fewer Mettles are currently active.
     private MettleManager GetRoundWinner() {
-        // Go through all the tanks...
+        // Go through all the Mettles...
         for (int i = 0; i < m_Mettles.Length; i++) {
             // ... and if one of them is active, it is the winner so return it.
             if (m_Mettles[i].m_Instance.activeSelf)
                 return m_Mettles[i];
         }
 
-        // If none of the tanks are active it is a draw so return null.
+        // If none of the Mettles are active it is a draw so return null.
         return null;
     }
 
 
     // This function is to find out if there is a winner of the game.
     private MettleManager GetGameWinner() {
-        // Go through all the tanks...
+        // Go through all the Mettles...
         for (int i = 0; i < m_Mettles.Length; i++) {
             // ... and if one of them has enough rounds to win the game, return it.
             if (m_Mettles[i].m_Wins == m_NumRoundsToWin)
                 return m_Mettles[i];
         }
 
-        // If no tanks have enough rounds to win, return null.
+        // If no Mettles have enough rounds to win, return null.
         return null;
     }
 
@@ -190,25 +190,25 @@ public class GameManager : MonoBehaviour {
 
         // If there is a winner then change the message to reflect that.
         if (m_RoundWinner != null)
-            message = m_RoundWinner.m_ColoredPlayerText + " WINS THE ROUND!";
+            message = m_RoundWinner.m_ColoredMettleText + " WINS THE ROUND!";
 
         // Add some line breaks after the initial message.
         message += "\n\n\n\n";
 
-        // Go through all the tanks and add each of their scores to the message.
+        // Go through all the Mettles and add each of their scores to the message.
         for (int i = 0; i < m_Mettles.Length; i++) {
-            message += m_Mettles[i].m_ColoredPlayerText + ": " + m_Mettles[i].m_Wins + " WINS\n";
+            message += m_Mettles[i].m_ColoredMettleText + ": " + m_Mettles[i].m_Wins + " WINS\n";
         }
 
         // If there is a game winner, change the entire message to reflect that.
         if (m_GameWinner != null)
-            message = m_GameWinner.m_ColoredPlayerText + " WINS THE GAME!";
+            message = m_GameWinner.m_ColoredMettleText + " WINS THE GAME!";
 
         return message;
     }
 
     
-    // This function is used to turn all the tanks back on and reset their positions and properties.
+    // This function is used to turn all the Mettles back on and reset their positions and properties.
     private void ResetAllMettles() {
         for (int i = 0; i < m_Mettles.Length; i++) {
             m_Mettles[i].Reset();

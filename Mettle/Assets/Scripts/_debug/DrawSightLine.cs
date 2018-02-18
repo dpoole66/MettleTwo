@@ -8,6 +8,6 @@ public class DrawSightLine : MonoBehaviour {
 
 	void OnDrawGizmos () {
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position, MettleEyeForward.position);	
+        //Gizmos.DrawLine(transform.position, MettleEyeForward.position);	
 	}
 }
